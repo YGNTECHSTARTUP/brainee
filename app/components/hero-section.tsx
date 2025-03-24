@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function HeroSection() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-black via-black to-blue-950">
+    <div className="relative  overflow-hidden bg-gradient-to-br from-black via-black to-blue-950">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(30,64,175,0.3),transparent_70%)]"></div>
 
@@ -39,11 +39,16 @@ export default function HeroSection() {
       {/* Hero Content */}
       <main className="relative z-10 flex flex-col items-center justify-center px-6 pt-20 pb-32 mx-auto text-center max-w-7xl">
         <h1 className="max-w-4xl mx-auto text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-        Protect What You Create
+       <span className="text-[#7681e1]">
+       Protect What You Create
+        </span>
           <br />
-          AI-Powered Intellectual
+          <span className="text-[#6f7cf3]">AI-Powered Intellectual</span>
           <br />
+          <span className="text-[#c084fc]">
           Property Protection
+          </span>
+
         </h1>
         <p className="max-w-2xl mx-auto mt-6 text-lg text-gray-300">
         We provide the tools, intelligence, and secure infrastructure to safeguard your content, detect plagiarism, and enforce usage rights 
@@ -87,6 +92,7 @@ export default function HeroSection() {
            
           </div>
         </div>
+   
       </main>
     </div>
   )

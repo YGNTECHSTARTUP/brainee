@@ -1,45 +1,15 @@
 
 import Link from "next/link"
-const navItems = [
-  { label: "Create A Watermark", href: "/watermark" },
-  { label: "Plagiarism Detector", href: "/plagraism" },
-  { label: "Chat With Our Chat Bot", href: "/chat-bot" },
-];
+
 export default function HeroSection() {
   return (
+    
     <div className="relative  overflow-hidden bg-gradient-to-br from-black via-black to-blue-950">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(30,64,175,0.3),transparent_70%)]"></div>
 
       {/* Navigation */}
-      <header className="relative z-10 px-6 py-4 mx-auto max-w-7xl">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/" className="text-white text-2xl font-bold">
-              Brainee
-            </Link>
-            <nav className="hidden ml-12 space-x-8 md:flex cursor-pointer">
-  {navItems.map((item) => (
-    <Link
-      key={item.label}
-      href={item.href}
-      className="text-gray-300 hover:text-white transition-colors"
-    >
-      {item.label}
-    </Link>
-  ))}
-</nav>
-          </div>
-          <div className="flex items-center space-x-4">
-            <Link href="/login" className="px-4 py-2 text-white hover:text-gray-200 transition-colors">
-              Log In
-            </Link>
-            {/* <Link href="/demo" className="px-4 py-2 text-white bg-gray-800 rounded hover:bg-gray-700 transition-colors">
-              U
-            </Link> */}
-          </div>
-        </div>
-      </header>
+     
 
       {/* Hero Content */}
       <main className="relative z-10 flex flex-col items-center justify-center px-6 pt-20 pb-32 mx-auto text-center max-w-7xl">

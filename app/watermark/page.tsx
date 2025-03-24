@@ -62,7 +62,9 @@ export default function WatermarkPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gradient-to-tr from-black via-black to-blue-950">
+    {/* // <div className="flex flex-col min-h-screen bg-gradient-to-tr from-blue-100 via-blue-200 to-blue-300"> */}
+
       {/* <header className="border-b">
         <div className="container flex h-16 items-center px-4 sm:px-6">
           <Link href="/" className="flex items-center gap-2 font-semibold">
@@ -74,25 +76,25 @@ export default function WatermarkPage() {
       <main className="flex-1 justify-center items-center mt-20 ">
         <div className="container px-4 md:px-6">
           <div className="mb-8">
-            <Link href="/" className="inline-flex items-center text-sm font-medium text-primary">
+            <Link href="/" className="inline-flex items-center text-sm font-medium text-white">
               <ArrowLeft className="mr-1 h-4 w-4" />
               Back to Home
             </Link>
           </div>
 
-          <div className="mx-auto max-w-2xl text-center">
-            <Card>
+          <div className="mx-auto max-w-2xl text-center  ">
+            <Card className=" bg-gradient-to-r from-[#190645] via-[#020236] to-[#0a0d16] border border-blue-200 text-gray-700 shadow-md">
               <CardHeader>
                 <CardTitle className="text-2xl">Create Watermark</CardTitle>
                 <CardDescription>Upload a document and customize your watermark</CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 ">
                   <div className="space-y-2">
                     <Label htmlFor="document">Upload Document</Label>
                     <div className="grid w-full items-center gap-1.5">
                       <div
-                        className={`flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 ${
+                        className={`flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-gradient-to-tr from-black via-black to-blue-950 hover:bg-gray-100 ${
                           file ? "border-primary" : "border-gray-300"
                         }`}
                         onClick={() => document.getElementById("document")?.click()}
@@ -106,8 +108,9 @@ export default function WatermarkPage() {
                             <p className="text-xs text-gray-500 dark:text-gray-400">Click to change file</p>
                           </div>
                         ) : (
-                          <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                            <Upload className="w-8 h-8 mb-2 text-gray-500" />
+                          <div className={`flex flex-col items-center justify-center pt-5 pb-6 bg-[#000000] hover:bg-[#190645] ${
+    file ? "border-blue-500" : "border-gray-400"}`}>
+                            <Upload className="w-8 h-8 mb-2 text-gray-500 " />
                             <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
                               <span className="font-semibold">Click to upload</span> or drag and drop
                             </p>
@@ -142,7 +145,7 @@ export default function WatermarkPage() {
                       onValueChange={setWatermarkSymbol}
                       className="grid grid-cols-4 gap-4"
                     >
-                      <div>
+                      <div className="bg-[#3b2db0]">
                         <RadioGroupItem value="droplet" id="droplet" className="peer sr-only" />
                         <Label
                           htmlFor="droplet"
@@ -153,13 +156,13 @@ export default function WatermarkPage() {
                         </Label>
                       </div>
 
-                      <div>
+                      <div className="bg-gradient-to-tr from-black via-black to-blue-950">
                         <RadioGroupItem value="check" id="check" className="peer sr-only" />
                         <Label
                           htmlFor="check"
                           className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                         >
-                          <Check className="mb-3 h-6 w-6" />
+                          <Check className="mb-3 h-6 w-6 " />
                           <span className="text-xs">Check</span>
                         </Label>
                       </div>
@@ -191,12 +194,12 @@ export default function WatermarkPage() {
                     /> */}
                   </div>
 
-                  <Button type="submit" className="w-full" disabled={!file || !watermarkText || isProcessing}>
+                  <Button type="submit" className="w-full  bg-blue-600 hover:bg-blue-700 text-white" disabled={!file || !watermarkText || isProcessing}>
                     {isProcessing ? (
                       <>Processing...</>
                     ) : (
                       <>
-                        <Upload className="mr-2 h-4 w-4" />
+                        <Upload className="mr-2 h-4 w-4 " />
                         Process Document
                       </>
                     )}

@@ -1,4 +1,3 @@
-"use client"
 import React from 'react';
 import Spline from '@splinetool/react-spline/next';
 

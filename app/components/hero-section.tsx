@@ -14,7 +14,7 @@ export default function HeroSection() {
             <Link href="/" className="text-white text-2xl font-bold">
               Brainee
             </Link>
-            <nav className="hidden ml-12 space-x-8 md:flex">
+            <nav className="hidden ml-12 space-x-8 md:flex cursor-pointer">
               {["watermark","Plagrasigm Detector","Chat With Our Chat Bot"].map((item) => (
                 <Link
                   key={item}

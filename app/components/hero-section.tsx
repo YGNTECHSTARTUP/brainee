@@ -1,6 +1,10 @@
 
 import Link from "next/link"
-
+const navItems = [
+  { label: "Create A Watermark", href: "/watermark" },
+  { label: "Plagiarism Detector", href: "/plagraism" },
+  { label: "Chat With Our Chat Bot", href: "/chat-bot" },
+];
 export default function HeroSection() {
   return (
     <div className="relative  overflow-hidden bg-gradient-to-br from-black via-black to-blue-950">
@@ -15,16 +19,16 @@ export default function HeroSection() {
               Brainee
             </Link>
             <nav className="hidden ml-12 space-x-8 md:flex cursor-pointer">
-              {["watermark","Plagrasigm Detector","Chat With Our Chat Bot"].map((item) => (
-                <Link
-                  key={item}
-                  href={`/${item.toLowerCase()}`}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  {item}
-                </Link>
-              ))}
-            </nav>
+  {navItems.map((item) => (
+    <Link
+      key={item.label}
+      href={item.href}
+      className="text-gray-300 hover:text-white transition-colors"
+    >
+      {item.label}
+    </Link>
+  ))}
+</nav>
           </div>
           <div className="flex items-center space-x-4">
             <Link href="/login" className="px-4 py-2 text-white hover:text-gray-200 transition-colors">

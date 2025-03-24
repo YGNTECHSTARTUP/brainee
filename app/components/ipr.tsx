@@ -6,7 +6,7 @@ const Ipr = () => {
     <div className=" w-full  text-white grid grid-cols-1 md:grid-cols-2 relative  overflow-hidden bg-gradient-to-t from-black via-gray-900 to-black">
        <div className="flex flex-col justify-center items-center p-8">
        
-       <div className="w-full h-[300px] md:h-[500px] bg-transparent">
+       <div className="w-full bg-transparent">
        <Spline
         scene="https://prod.spline.design/exvciKtABsnGAtbR/scene.splinecode" 
       />

@@ -14,7 +14,7 @@ export default function HeroSection() {
               Brainee
             </Link>
             <nav className="hidden ml-12 space-x-8 md:flex">
-              {["Create an WaterMarker","Plagrasigm Detector","Chat With Our Chat Bot"].map((item) => (
+              {["watermark","Plagrasigm Detector","Chat With Our Chat Bot"].map((item) => (
                 <Link
                   key={item}
                   href={`/${item.toLowerCase()}`}

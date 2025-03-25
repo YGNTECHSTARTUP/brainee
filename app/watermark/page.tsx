@@ -3,9 +3,9 @@
 import type React from "react"
 import { useState } from "react"
 import Link from "next/link"
-import { Droplet, Upload, Download, ArrowLeft, FileText, Check } from "lucide-react"
+import { Droplet, Upload, ArrowLeft, FileText, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
@@ -42,8 +42,17 @@ export default function WatermarkPage() {
   }
 
   const handleDownload = () => {
-    alert("In a real application, this would download your watermarked document.")
-  }
+    if (processedFileUrl) {
+      const link = document.createElement("a");
+      link.href = processedFileUrl;
+      link.download = "project.pdf"; // Correct filename
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+  
+
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-black via-indigo-900 to-blue-950 text-white">
@@ -157,17 +166,15 @@ export default function WatermarkPage() {
 
               {/* Download Button */}
               {processedFileUrl && (
-                <CardFooter>
-                  <Button
-                    onClick={handleDownload}
-                    variant="outline"
-                    className="w-full border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
-                  >
-                    <Download className="mr-2 h-4 w-4" />
-                    Download Watermarked Document
-                  </Button>
-                </CardFooter>
-              )}
+  <div className="flex items-center justify-center mt-4">
+    <Button
+      onClick={handleDownload}
+      className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-all duration-300"
+    >
+      Download Processed File
+    </Button>
+  </div>
+)}
             </Card>
           </div>
         </div>

@@ -1,5 +1,6 @@
 
 import Link from "next/link"
+import Navbar from "./navbar"
 
 export default function HeroSection() {
   return (
@@ -9,7 +10,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(30,64,175,0.3),transparent_70%)]"></div>
 
       {/* Navigation */}
-     
+     <Navbar/>
 
       {/* Hero Content */}
       <main className="relative z-10 flex flex-col items-center justify-center px-6 pt-20 pb-32 mx-auto text-center max-w-7xl">

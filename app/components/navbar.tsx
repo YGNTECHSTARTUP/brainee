@@ -5,6 +5,7 @@ const navItems = [
     { label: "Create A Watermark", href: "/watermark" },
     { label: "Plagiarism Detector", href: "/plagraism" },
     { label: "Chat With Our Chat Bot", href: "/chat-bot" },
+    {label:"Interact with Our Voice Bot",href:"/voice-bot"}
   ];
 const Navbar = () => {
   return (

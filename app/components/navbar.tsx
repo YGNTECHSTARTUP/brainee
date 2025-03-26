@@ -1,44 +1,70 @@
-import { SignedIn, SignInButton, UserButton } from '@clerk/nextjs'
-import Link from 'next/link'
-import React from 'react'
+'use client';
+
+import { SignedIn, SignInButton, UserButton } from '@clerk/nextjs';
+import Link from 'next/link';
+import React from 'react';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Menu } from 'lucide-react';
+
 const navItems = [
-    { label: "Create A Watermark", href: "/watermark" },
-    { label: "Plagiarism Detector", href: "/plagraism" },
-    { label: "Chat With Our Chat Bot", href: "/chat-bot" },
-    {label:"Interact with Our Voice Bot",href:"/voice-bot"}
-  ];
+  { label: 'Create A Watermark', href: '/watermark' },
+  { label: 'Plagiarism Detector', href: '/plagiarism' },
+  { label: 'Chat With Our Chat Bot', href: '/chat-bot' },
+  { label: 'Interact with Our Voice Bot', href: '/voice-bot' },
+];
+
 const Navbar = () => {
   return (
-    <header className="relative z-10 px-6 py-4  mx-auto min-w-full bg-black">
-    <div className="flex items-center justify-between container">
-      <div className="flex items-center container">
-        <Link href="/" className="text-white text-2xl font-bold ml-16">
+    <header className="relative z-10 px-6 py-4 bg-black min-w-full">
+      <div className="flex items-center justify-between container mx-auto">
+        <Link href="/" className="text-white text-2xl font-bold">
           Brainee
         </Link>
-        <nav className="hidden ml-12 space-x-8 md:flex cursor-pointer">
-{navItems.map((item) => (
-<Link
-  key={item.label}
-  href={item.href}
-  className="text-gray-300 hover:text-white transition-colors"
->
-  {item.label}
-</Link>
-))}
-</nav>
-      </div>
-      <div className="flex items-center space-x-4">
-       <SignInButton/>
-       <SignedIn>
-        <UserButton/>
-       </SignedIn>
-        {/* <Link href="/demo" className="px-4 py-2 text-white bg-gray-800 rounded hover:bg-gray-700 transition-colors">
-          U
-        </Link> */}
-      </div>
-    </div>
-  </header>
-  )
-}
+        
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex space-x-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-export default Navbar
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger className="text-white focus:outline-none">
+              <Menu className="w-6 h-6" />
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-black text-white">
+              <nav className="flex flex-col space-y-4 p-6">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
+
+        <div className="hidden md:flex items-center space-x-4">
+          <SignInButton />
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;

@@ -33,7 +33,7 @@ export default function HeroSection() {
         </p>
         <div className="flex flex-col mt-10 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
           <Link
-            href="/demo"
+            href="/chat-bot"
             className="flex items-center justify-center px-8 py-3 text-lg font-medium text-gray-900 bg-white rounded-md hover:bg-gray-100 transition-colors"
           >
           Use This Product Now
@@ -46,7 +46,7 @@ export default function HeroSection() {
             </svg>
           </Link>
           <Link
-            href="/build"
+            href="/chat-bot"
             className="px-8 py-3 text-lg font-medium text-white bg-gray-800 rounded-md hover:bg-gray-700 transition-colors"
           >
             Chat with Our Ai assitant
